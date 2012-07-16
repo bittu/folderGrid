@@ -1,6 +1,8 @@
 /*
  *  Project			:		folderGrid
  *
+ *  Version			:		v2
+ *
  *  Description		: 		folderGrid is a jQuery Plugin used for dynamic creation of folders 
  *							and files structure in a grid format instead of tree.
  *
@@ -8,7 +10,7 @@
  *
  *  License			:		Copyright 2012, Sandeep Vemula
  * 			 				Licensed under the GNU-GPL licenses.
- * 			 				You should have received a copy of the GNU General Public License
+ * 			 				You must have received a copy of the GNU General Public License
  *			 				along with this plugin as COPYING.txt
  *		 	 				If not, see <http://www.gnu.org/licenses/>.
  *
@@ -30,10 +32,11 @@
 		var config = {
 			colModel:[],
 			url:'',
-			headerTitle:'',
+			headerTitle:'/',
 			openFileFn : {},
 			parentID : 0,
-			param : 'id'
+			param : 'id',
+			imageCfg : ''
 		};
 		
 		if (settings){$.extend(config, settings);}
@@ -58,6 +61,8 @@
 				$('#'+$selector+'-folderGrid-table').append($('<tr>').append($('<td>',{text:'colModel not specified', style:'border : 1px solid red;'})));
 				$error = true;
 			}
+			if((typeof config.imageCfg)=='object')
+				createCustomCSS();
 		};
 		
 		var fetch = function(){
@@ -81,7 +86,12 @@
 								{
 									var tr = $('<tr>');
 									var tmpData = data[i];
-									tr.append($('<td>').addClass(tmpData['isFolder']?'folder':'leaf'));
+									if((typeof config.imageCfg)=='object')
+									{
+										tr.append($('<td>').addClass(tmpData[config.imageCfg.cfg]));
+									}
+									else
+										tr.append($('<td>').addClass(tmpData['isFolder']?'folder':'leaf'));
 									for(var j=0; j<config.colModel.length; j++)
 									{
 										var tmpHead = config.colModel[j];
@@ -221,6 +231,36 @@
 				});
 			}
 		}
+
+		function createCustomCSS()
+		{
+			var style = $("<style>",{ type : 'text/css', rel : 'folderGrid'});
+			for(var i=0; i<config.imageCfg.images.length; i++)
+			{
+				var imgObj = config.imageCfg.images[i];
+				if(!findCSSClass(imgObj.type))
+					style.append('.'+imgObj.type+' { background : url(\''+imgObj.image+'\') no-repeat 50% 50% scroll transparent; } ');
+			}
+			style.appendTo("head");
+		}
+
+		function findCSSClass(className)
+		{
+			if(!document.styleSheets) return false;
+			var A, S, DS= document.styleSheets, n= DS.length, SA= [];
+				while(n){
+					S= DS[--n];
+					if(S.ownerNode.attributes.rel && S.ownerNode.attributes.rel.childNodes[0].wholeText == "folderGrid"){
+						A= (S.rules)? S.rules: S.cssRules;
+						for(var i= 0, L= A.length; i<L; i++){
+								tem= A[i].selectorText? [A[i].selectorText, A[i].style.cssText]: [A[i]+''];
+						if('.'+className == tem[0])
+							return true;
+						}
+					}
+				}
+				return false;
+			}
 		
 		var $selector = $obj.selector.substring(1, $obj.selector.length)+genRand();
 
