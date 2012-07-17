@@ -1,5 +1,7 @@
 # folderGrid
 
+folderGrid is a jQuery Plugin used for dynamic creation of folders 
+and files structure in a grid format instead of tree.
 
 ### Requires : 
 	
