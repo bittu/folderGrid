@@ -79,7 +79,7 @@
 				$.ajax({
 					url : config.url+($concatParam?'&':'?')+config.param+'='+pid,
 					success : function(response){
-								//var dummyData = '[{"id" : "val1", "SI_TITLE" : "Folder1", "SI_KIND" : "Folder", "SI_OWNER" : "Administrator", "isFolder" : "true"}, {"id" : "val2", "SI_TITLE" : "Webi1", "SI_KIND" : "Webi", "SI_OWNER" : "Administrator"}, {"id" : "val3", "SI_TITLE" : "Webi2", "SI_KIND" : "Webi", "SI_OWNER" : "Administrator"}]';
+								
 								var data = $.parseJSON(response);
 								var tbody = $('<tbody>');
 								for(var i=0; i<data.length; i++)
