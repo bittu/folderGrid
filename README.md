@@ -92,6 +92,7 @@ eg:
 # Copyright and license
 
 Copyright 2012, Sandeep Vemula _aka_ bittu
+
 Licensed under the GNU-GPL licenses.
 You must have received a copy of the GNU General Public License
 along with this plugin as COPYING.txt
