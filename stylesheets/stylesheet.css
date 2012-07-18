@@ -206,3 +206,7 @@ blockquote {
 section {
 	padding-top: 60px;
 }
+
+section:before {
+	content: "== ";
+}

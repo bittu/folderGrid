@@ -58,9 +58,23 @@
 	<div id="main">
     <header>
 		<div class="well ics-border-bottom">
-			<h1 class="pull-left"><a href="/">bittu.github.com </a><span style="font-size: 24px;">/</span> folderGrid</h1>
-		</div>
-		<div class="pull-right">
+			<h1><a href="/">bittu.github.com </a><span style="font-size: 24px;">/</span> folderGrid</h1>
+			<div class="pull-right">
+				<div class="btn-group">
+					<a href="zipball/master" class="btn">
+						<small>Download</small>
+						<h5>.ZIP</h5>
+					</a>
+					<a href="tarball/master" class="btn">
+						<small>Download</small>
+						<h5>.TAR</h5>
+					</a>
+					<a href="fork" class="btn">
+						<small>Fork</small>
+						<h5>GITHUB</h5>
+					</a>
+				</div>
+			</div>
 		</div>
     </header>
 
@@ -274,6 +288,7 @@ $('#listing').folderGrid({
 							<blockquote>
 								<div class="listing1">
 								</div>
+								<small><span class="label label-info">default icons</span></small>
 							</blockquote>
 						</div>
 					</div>
@@ -317,6 +332,7 @@ $('#listing').folderGrid({
 							<blockquote>
 								<div class="listing2">
 								</div>
+								<small><span class="label label-info">custom icons</span></small>
 							</blockquote>
 						</div>
 					</div>
@@ -344,15 +360,7 @@ $('#listing').folderGrid({
 	<script src="javascripts/jquery.folderGrid.js"></script>
 	<script type="text/javascript">
 		
-		function sizing() {
-			var headerheight=$("header").height();
-			var containerheight=$(".container-fluid").height();
-			var footerheight=$("footer").height();			
-			$(".centered").height(($(window).height()-headerheight-footerheight-150)+"px");
-		}
-		
 		$(document).ready(function(){
-			sizing();
 			$('.listing1').folderGrid({
 					url:'javascripts/data.js',			
 					colModel : [
@@ -404,7 +412,6 @@ $('#listing').folderGrid({
       }
     }
 		});
-		$(window).resize(sizing);
 		
 	</script>
   </body>
