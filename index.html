@@ -22,6 +22,7 @@
 		window.onload = function(){
 			document.getElementById('loading').style.display = "none";
 			document.getElementById('main').style.display = "block";
+			$('body').scrollspy($('body').data());
 		};
 		
 	</script>
@@ -42,7 +43,7 @@
     <title>folderGrid by bittu</title>
   </head>
 
-  <body data-spy="scroll" data-target=".subnav" data-offset="20">
+  <body data-target=".subnav" data-offset="100">
 
 	<div id="loading">
 		<div class="block">
