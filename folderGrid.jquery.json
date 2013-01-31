@@ -1,0 +1,34 @@
+{
+    "name": "folderGrid",
+    "title": "jQuery folderGrid",
+    "description": "a jQuery Plugin used for dynamic creation of folders and files structure in grid format as Windows Explorer.",
+    "keywords": [
+        "folderGrid",
+        "fileexplorer"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Sandeep Vemula",
+        "url": "http://bittu.github.com"
+    },
+    "maintainers": [
+        {
+            "name": "Sandeep Vemula",
+            "email": "bittu4u.4ever@gmail.com",
+            "url": "http://bittu.github.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "GNU-GPL",
+            "url": "https://github.com/bittu/folderGrid/blob/master/license/COPYING.txt"
+        }
+    ],
+    "bugs": "https://github.com/bittu/folderGrid/issues",
+    "homepage": "http://bittu.github.com/folderGrid/",
+    "docs": "http://bittu.github.com/folderGrid/",
+    "download": "https://github.com/bittu/folderGrid/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
